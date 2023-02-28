@@ -9,24 +9,24 @@
     <title>Sole Searcher</title>
 </head>
 
-<body class="">
+<body class="bg-zinc-800 text-zinc-200">
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto">
             <!-- CONTENT -->
-            <div class="p-3 mb-6 bg-">
-                <h1 class="text-3xl font-bold" style="color:#757e67;">Sole Searcher</h1>
+            <div class="p-3 mb-6">
+                <h1 class="text-3xl font-bold">Sole Searcher</h1>
             </div>
 
             <!-- INPUT -->
             <form class="grid grid-cols-2 gap-4">
                 <div>
-                    <label for="height" class="block text-sm font-medium text-gray-700">Subject Height</label>
+                    <label for="height" class="block text-sm font-medium text-gray-200">Subject Height</label>
                     <div class="relative mt-1 rounded-md shadow-sm">
                         <input type="text" name="height" id="height" value="1828"
-                            class="block w-full pr-12 border-gray-300 rounded-md focus:border-green-500 focus:ring-green-500 sm:text-sm">
+                            class="block w-full pr-12 bg-transparent border-gray-300 rounded-md focus:border-green-500 focus:ring-green-500 sm:text-sm">
                         <div class="absolute inset-y-0 right-0 flex items-center">
                             <select id="currency" name="currency"
-                                class="h-full py-0 pl-2 text-gray-500 bg-transparent border-transparent rounded-md pr-7 focus:border-green-500 focus:ring-green-500 sm:text-sm">
+                                class="h-full py-0 pl-2 text-gray-400 bg-transparent border-transparent rounded-md pr-7 focus:border-green-500 focus:ring-green-500 sm:text-sm">
                                 <option>mm</option>
                                 <option>cm</option>
                                 <option>in</option>
@@ -36,14 +36,14 @@
                 </div>
 
                 <div>
-                    <label for="insole" class="block text-sm font-medium text-gray-700">Insole Length</label>
+                    <label for="insole" class="block text-sm font-medium text-gray-200">Insole Length</label>
                     <div class="relative mt-1 rounded-md shadow-sm">
                         <input type="text" name="insole" id="insole"
-                            class="block w-full pr-12 border-gray-300 rounded-md focus:border-green-500 focus:ring-green-500 sm:text-sm"
+                            class="block w-full pr-12 bg-transparent border-gray-300 rounded-md focus:border-green-500 focus:ring-green-500 sm:text-sm"
                             value="292">
                         <div class="absolute inset-y-0 right-0 flex items-center">
                             <select id="currency" name="currency"
-                                class="h-full py-0 pl-2 text-gray-500 bg-transparent border-transparent rounded-md pr-7 focus:border-green-500 focus:ring-green-500 sm:text-sm">
+                                class="h-full py-0 pl-2 text-gray-400 bg-transparent border-transparent rounded-md pr-7 focus:border-green-500 focus:ring-green-500 sm:text-sm">
                                 <option>mm</option>
                                 <option>cm</option>
                                 <option>in</option>
@@ -53,18 +53,18 @@
                 </div>
 
                 <div>
-                    <label for="nominal" class="block text-sm font-medium text-gray-700">Nominal Shoe Size - US</label>
+                    <label for="nominal" class="block text-sm font-medium text-gray-200">Nominal Shoe Size - US</label>
                     <div class="mt-1">
                         <input type="number" name="nominal" id="nominal" min="1" max="18" step="0.5" value="11.5"
-                            class="block w-full border-gray-300 rounded-md shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm">
+                            class="block w-full bg-transparent border-gray-300 rounded-md shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm">
                     </div>
                 </div>
 
                 <div>
-                    <label for="footwear-class" class="block text-sm font-medium text-gray-700">Footwear
+                    <label for="footwear-class" class="block text-sm font-medium text-gray-200">Footwear
                         Classification</label>
                     <select id="footwear-class" name="footwear-class"
-                        class="block w-full py-2 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-md focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm">
+                        class="block w-full py-2 pl-3 pr-10 mt-1 text-base bg-transparent border-gray-300 rounded-md focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm">
                         <option>Men's</option>
                         <option>Women's</option>
                         <option>Youth</option>
@@ -73,8 +73,8 @@
             </form>
 
             <!-- OUTPUT -->
-            <div class="px-4 py-5 bg-white border-b border-gray-200 sm:px-6">
-                <h3 class="text-lg font-medium leading-6 text-center text-gray-900">Outsole Length</h3>
+            <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
+                <h3 class="text-lg font-medium leading-6 text-center text-gray-100">Outsole Length</h3>
                 <div class="px-6 lg:px-8">
                     <div class="flow-root mt-8">
                         <div class="-mx-6 -my-2 overflow-x-auto lg:-mx-8">
@@ -83,19 +83,19 @@
                                     <thead>
                                         <tr>
                                             <th scope="col"
-                                                class="py-3.5 pl-6 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                                                class="py-3.5 pl-6 pr-3 text-left text-sm font-semibold text-gray-100 sm:pl-0">
                                                 <span class="sr-only">Input Metric</span>
                                             </th>
                                             <th scope="col"
-                                                class="py-3.5 px-3 text-sm font-semibold text-gray-900 text-center">
+                                                class="py-3.5 px-3 text-sm font-semibold text-gray-100 text-center">
                                                 Lower Limit
                                             </th>
                                             <th scope="col"
-                                                class="py-3.5 px-3 text-sm font-semibold text-gray-900 text-center">
+                                                class="py-3.5 px-3 text-sm font-semibold text-gray-100 text-center">
                                                 Track Length
                                             </th>
                                             <th scope="col"
-                                                class="py-3.5 px-3 text-sm font-semibold text-gray-900 text-center">
+                                                class="py-3.5 px-3 text-sm font-semibold text-gray-100 text-center">
                                                 Upper Limit
                                             </th>
 
@@ -103,32 +103,32 @@
                                     </thead>
                                     <tbody class="divide-y divide-gray-200">
                                         <tr>
-                                            <td class="py-4 pl-6 pr-3 font-medium text-gray-900 sm:pl-0">
+                                            <td class="py-4 pl-6 pr-3 font-medium text-gray-100 sm:pl-0">
                                                 Insole Length</td>
-                                            <td class="px-3 py-4 text-center text-gray-500" id="outsole-insole-lower">
+                                            <td class="px-3 py-4 text-center text-gray-400" id="outsole-insole-lower">
                                                 297</td>
-                                            <td class="px-3 py-4 font-bold text-center text-gray-900"
+                                            <td class="px-3 py-4 font-bold text-center text-gray-100"
                                                 id="outsole-insole-predict">319</td>
-                                            <td class="px-3 py-4 text-center text-gray-500" id="outsole-insole-upper">
+                                            <td class="px-3 py-4 text-center text-gray-400" id="outsole-insole-upper">
                                                 341</td>
                                         </tr>
                                         <tr>
-                                            <td class="py-4 pl-6 pr-3 font-medium text-gray-900 sm:pl-0">
+                                            <td class="py-4 pl-6 pr-3 font-medium text-gray-100 sm:pl-0">
                                                 Nominal Shoe Size</td>
-                                            <td class="px-3 py-4 text-center text-gray-500" id="outsole-nominal-lower">
+                                            <td class="px-3 py-4 text-center text-gray-400" id="outsole-nominal-lower">
                                                 290</td>
-                                            <td class="px-3 py-4 font-bold text-center text-gray-900"
+                                            <td class="px-3 py-4 font-bold text-center text-gray-100"
                                                 id="outsole-nominal-predict">314</td>
-                                            <td class="px-3 py-4 text-center text-gray-500" id="outsole-nominal-upper">
+                                            <td class="px-3 py-4 text-center text-gray-400" id="outsole-nominal-upper">
                                                 333</td>
                                         </tr>
                                         <tr>
-                                            <td class="py-4 pl-6 pr-3 font-medium text-gray-900 sm:pl-0">
+                                            <td class="py-4 pl-6 pr-3 font-medium text-gray-100 sm:pl-0">
                                                 Subject Height</td>
-                                            <td class="px-3 py-4 text-center text-gray-500">-</td>
-                                            <td class="px-3 py-4 font-bold text-center text-gray-900"
+                                            <td class="px-3 py-4 text-center text-gray-400">-</td>
+                                            <td class="px-3 py-4 font-bold text-center text-gray-100"
                                                 id="outsole-height-predict">333</td>
-                                            <td class="px-3 py-4 text-center text-gray-500">-</td>
+                                            <td class="px-3 py-4 text-center text-gray-400">-</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -138,8 +138,8 @@
                 </div>
             </div>
 
-            <div class="px-4 py-5 bg-white border-b border-gray-200 sm:px-6">
-                <h3 class="text-lg font-medium leading-6 text-center text-gray-900">Barefoot Track Length</h3>
+            <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
+                <h3 class="text-lg font-medium leading-6 text-center text-gray-100">Barefoot Track Length</h3>
                 <div class="px-6 lg:px-8">
                     <div class="flow-root mt-8">
                         <div class="-mx-6 -my-2 overflow-x-auto lg:-mx-8">
@@ -148,19 +148,19 @@
                                     <thead>
                                         <tr>
                                             <th scope="col"
-                                                class="py-3.5 pl-6 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                                                class="py-3.5 pl-6 pr-3 text-left text-sm font-semibold text-gray-100 sm:pl-0">
                                                 <span class="sr-only">Input Metric</span>
                                             </th>
                                             <th scope="col"
-                                                class="py-3.5 px-3 text-sm font-semibold text-gray-900 text-center">
+                                                class="py-3.5 px-3 text-sm font-semibold text-gray-100 text-center">
                                                 Lower Limit
                                             </th>
                                             <th scope="col"
-                                                class="py-3.5 px-3 text-sm font-semibold text-gray-900 text-center">
+                                                class="py-3.5 px-3 text-sm font-semibold text-gray-100 text-center">
                                                 Track Length
                                             </th>
                                             <th scope="col"
-                                                class="py-3.5 px-3 text-sm font-semibold text-gray-900 text-center">
+                                                class="py-3.5 px-3 text-sm font-semibold text-gray-100 text-center">
                                                 Upper Limit
                                             </th>
 
@@ -168,32 +168,32 @@
                                     </thead>
                                     <tbody class="divide-y divide-gray-200">
                                         <tr>
-                                            <td class="py-4 pl-6 pr-3 font-medium text-gray-900 sm:pl-0">
+                                            <td class="py-4 pl-6 pr-3 font-medium text-gray-100 sm:pl-0">
                                                 Insole Length</td>
-                                            <td class="px-3 py-4 text-center text-gray-500" id="outsole-insole-lower">
+                                            <td class="px-3 py-4 text-center text-gray-400" id="outsole-insole-lower">
                                                 297</td>
-                                            <td class="px-3 py-4 font-bold text-center text-gray-900"
+                                            <td class="px-3 py-4 font-bold text-center text-gray-100"
                                                 id="outsole-insole-predict">319</td>
-                                            <td class="px-3 py-4 text-center text-gray-500" id="outsole-insole-upper">
+                                            <td class="px-3 py-4 text-center text-gray-400" id="outsole-insole-upper">
                                                 341</td>
                                         </tr>
                                         <tr>
-                                            <td class="py-4 pl-6 pr-3 font-medium text-gray-900 sm:pl-0">
+                                            <td class="py-4 pl-6 pr-3 font-medium text-gray-100 sm:pl-0">
                                                 Nominal Shoe Size</td>
-                                            <td class="px-3 py-4 text-center text-gray-500" id="outsole-nominal-lower">
+                                            <td class="px-3 py-4 text-center text-gray-400" id="outsole-nominal-lower">
                                                 290</td>
-                                            <td class="px-3 py-4 font-bold text-center text-gray-900"
+                                            <td class="px-3 py-4 font-bold text-center text-gray-100"
                                                 id="outsole-nominal-predict">314</td>
-                                            <td class="px-3 py-4 text-center text-gray-500" id="outsole-nominal-upper">
+                                            <td class="px-3 py-4 text-center text-gray-400" id="outsole-nominal-upper">
                                                 333</td>
                                         </tr>
                                         <tr>
-                                            <td class="py-4 pl-6 pr-3 font-medium text-gray-900 sm:pl-0">
+                                            <td class="py-4 pl-6 pr-3 font-medium text-gray-100 sm:pl-0">
                                                 Subject Height</td>
-                                            <td class="px-3 py-4 text-center text-gray-500">-</td>
-                                            <td class="px-3 py-4 font-bold text-center text-gray-900"
+                                            <td class="px-3 py-4 text-center text-gray-400">-</td>
+                                            <td class="px-3 py-4 font-bold text-center text-gray-100"
                                                 id="outsole-height-predict">333</td>
-                                            <td class="px-3 py-4 text-center text-gray-500">-</td>
+                                            <td class="px-3 py-4 text-center text-gray-400">-</td>
                                         </tr>
                                     </tbody>
                                 </table>
