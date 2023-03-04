@@ -7,43 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/style.css">
     <title>Sole Searcher</title>
+    <script src="static/js/sole.js" defer></script>
 </head>
 
 <body class="bg-zinc-800 text-zinc-200">
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto">
+        <div class="max-w-3xl pt-4 mx-auto space-y-8">
+
             <!-- CONTENT -->
-            <div class="p-3 mb-6">
+            <div>
                 <h1 class="text-3xl font-bold">Sole Searcher</h1>
             </div>
 
             <!-- INPUT -->
-            <form class="grid grid-cols-2 gap-4">
-                <div>
-                    <label for="height" class="block text-sm font-medium text-gray-200">Subject Height</label>
-                    <div class="relative mt-1 rounded-md shadow-sm">
-                        <input type="text" name="height" id="height" value="1828"
-                            class="block w-full pr-12 bg-transparent border-gray-300 rounded-md focus:border-green-500 focus:ring-green-500 sm:text-sm">
-                        <div class="absolute inset-y-0 right-0 flex items-center">
-                            <select id="currency" name="currency"
-                                class="h-full py-0 pl-2 text-gray-400 bg-transparent border-transparent rounded-md pr-7 focus:border-green-500 focus:ring-green-500 sm:text-sm">
-                                <option>mm</option>
-                                <option>cm</option>
-                                <option>in</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
+            <form class="grid grid-cols-2 gap-6 px-4 py-5 sm:px-6">
+                <div class="col-span-2">
                     <label for="insole" class="block text-sm font-medium text-gray-200">Insole Length</label>
                     <div class="relative mt-1 rounded-md shadow-sm">
                         <input type="text" name="insole" id="insole"
                             class="block w-full pr-12 bg-transparent border-gray-300 rounded-md focus:border-green-500 focus:ring-green-500 sm:text-sm"
                             value="292">
-                        <div class="absolute inset-y-0 right-0 flex items-center">
-                            <select id="currency" name="currency"
-                                class="h-full py-0 pl-2 text-gray-400 bg-transparent border-transparent rounded-md pr-7 focus:border-green-500 focus:ring-green-500 sm:text-sm">
+                        <div class="absolute inset-y-0 right-0 flex items-center t-0">
+                            <select id="insole-unit" name="insole-unit"
+                                class="h-full py-0 pl-2 text-gray-200 border-l-0 border-gray-300 rounded-r-md bg-zinc-800 pr-7 focus:border-green-500 focus:ring-green-500 sm:text-sm">
                                 <option>mm</option>
                                 <option>cm</option>
                                 <option>in</option>
@@ -65,16 +51,41 @@
                         Classification</label>
                     <select id="footwear-class" name="footwear-class"
                         class="block w-full py-2 pl-3 pr-10 mt-1 text-base bg-transparent border-gray-300 rounded-md focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm">
-                        <option>Men's</option>
-                        <option>Women's</option>
-                        <option>Youth</option>
+                        <option value="m">Men's</option>
+                        <option value="w">Women's</option>
+                        <option value="y">Youth</option>
+                    </select>
+                </div>
+
+                <div class="">
+                    <label for="height" class="block text-sm font-medium text-gray-200">Subject Height</label>
+                    <div class="relative mt-1 rounded-md shadow-sm">
+                        <input type="text" name="height" id="height" value="1828"
+                            class="block w-full pr-12 bg-transparent border-gray-300 rounded-md focus:border-green-500 focus:ring-green-500 sm:text-sm">
+                        <div class="absolute inset-y-0 right-0 flex items-center">
+                            <select id="height-unit" name="height-unit"
+                                class="h-full py-0 pl-2 text-gray-200 bg-transparent border-transparent rounded-md pr-7 focus:border-green-500 focus:ring-green-500 sm:text-sm">
+                                <option>mm</option>
+                                <option>cm</option>
+                                <option>in</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="sex" class="block text-sm font-medium text-gray-200">Birth Sex</label>
+                    <select id="sex" name="sex"
+                        class="block w-full py-2 pl-3 pr-10 mt-1 text-base bg-transparent border-gray-300 rounded-md focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm">
+                        <option value="m">Male</option>
+                        <option value="f">Female</option>
                     </select>
                 </div>
             </form>
 
             <!-- OUTPUT -->
-            <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
-                <h3 class="text-lg font-medium leading-6 text-center text-gray-100">Outsole Length</h3>
+            <div class="px-4 py-5 sm:px-6">
+                <h3 class="text-lg font-medium leading-6 text-center text-gray-100">Track Lengths</h3>
                 <div class="px-6 lg:px-8">
                     <div class="flow-root mt-8">
                         <div class="-mx-6 -my-2 overflow-x-auto lg:-mx-8">
@@ -84,15 +95,11 @@
                                         <tr>
                                             <th scope="col"
                                                 class="py-3.5 pl-6 pr-3 text-left text-sm font-semibold text-gray-100 sm:pl-0">
-                                                <span class="sr-only">Input Metric</span>
+                                                <span class="sr-only">Output Metric</span>
                                             </th>
                                             <th scope="col"
                                                 class="py-3.5 px-3 text-sm font-semibold text-gray-100 text-center">
                                                 Lower Limit
-                                            </th>
-                                            <th scope="col"
-                                                class="py-3.5 px-3 text-sm font-semibold text-gray-100 text-center">
-                                                Track Length
                                             </th>
                                             <th scope="col"
                                                 class="py-3.5 px-3 text-sm font-semibold text-gray-100 text-center">
@@ -104,97 +111,33 @@
                                     <tbody class="divide-y divide-gray-200">
                                         <tr>
                                             <td class="py-4 pl-6 pr-3 font-medium text-gray-100 sm:pl-0">
-                                                Insole Length</td>
-                                            <td class="px-3 py-4 text-center text-gray-400" id="outsole-insole-lower">
-                                                297</td>
-                                            <td class="px-3 py-4 font-bold text-center text-gray-100"
-                                                id="outsole-insole-predict">319</td>
-                                            <td class="px-3 py-4 text-center text-gray-400" id="outsole-insole-upper">
-                                                341</td>
+                                                Outsole Track Length</td>
+                                            <td class="px-3 py-4 text-center text-gray-200">
+                                                <div><span class="pr-1" id="shod-lower-mm">-</span>mm</div>
+                                                <div class="text-sm text-gray-400"><span class="pr-1"
+                                                        id="shod-lower-in">-</span>in</div>
+                                            </td>
+                                            <td class="px-3 py-4 text-center text-gray-200">
+                                                <div><span class="pr-1" id="shod-upper-mm">-</span>mm</div>
+                                                <div class="text-sm text-gray-400"><span class="pr-1"
+                                                        id="shod-upper-in">-</span>in</div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="py-4 pl-6 pr-3 font-medium text-gray-100 sm:pl-0">
-                                                Nominal Shoe Size</td>
-                                            <td class="px-3 py-4 text-center text-gray-400" id="outsole-nominal-lower">
-                                                290</td>
-                                            <td class="px-3 py-4 font-bold text-center text-gray-100"
-                                                id="outsole-nominal-predict">314</td>
-                                            <td class="px-3 py-4 text-center text-gray-400" id="outsole-nominal-upper">
-                                                333</td>
+                                                Barefoot Track Length</td>
+                                            <td class="px-3 py-4 text-center text-gray-200">
+                                                <div><span class="pr-1" id="unshod-lower-mm">-</span>mm</div>
+                                                <div class="text-sm text-gray-400"><span class="pr-1"
+                                                        id="unshod-lower-in">-</span>in</div>
+                                            </td>
+                                            <td class="px-3 py-4 text-center text-gray-200">
+                                                <div><span class="pr-1" id="unshod-upper-mm">-</span>mm</div>
+                                                <div class="text-sm text-gray-400"><span class="pr-1"
+                                                        id="unshod-upper-in">-</span>in</div>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td class="py-4 pl-6 pr-3 font-medium text-gray-100 sm:pl-0">
-                                                Subject Height</td>
-                                            <td class="px-3 py-4 text-center text-gray-400">-</td>
-                                            <td class="px-3 py-4 font-bold text-center text-gray-100"
-                                                id="outsole-height-predict">333</td>
-                                            <td class="px-3 py-4 text-center text-gray-400">-</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
-                <h3 class="text-lg font-medium leading-6 text-center text-gray-100">Barefoot Track Length</h3>
-                <div class="px-6 lg:px-8">
-                    <div class="flow-root mt-8">
-                        <div class="-mx-6 -my-2 overflow-x-auto lg:-mx-8">
-                            <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                                <table class="min-w-full divide-y divide-gray-300">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col"
-                                                class="py-3.5 pl-6 pr-3 text-left text-sm font-semibold text-gray-100 sm:pl-0">
-                                                <span class="sr-only">Input Metric</span>
-                                            </th>
-                                            <th scope="col"
-                                                class="py-3.5 px-3 text-sm font-semibold text-gray-100 text-center">
-                                                Lower Limit
-                                            </th>
-                                            <th scope="col"
-                                                class="py-3.5 px-3 text-sm font-semibold text-gray-100 text-center">
-                                                Track Length
-                                            </th>
-                                            <th scope="col"
-                                                class="py-3.5 px-3 text-sm font-semibold text-gray-100 text-center">
-                                                Upper Limit
-                                            </th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody class="divide-y divide-gray-200">
-                                        <tr>
-                                            <td class="py-4 pl-6 pr-3 font-medium text-gray-100 sm:pl-0">
-                                                Insole Length</td>
-                                            <td class="px-3 py-4 text-center text-gray-400" id="outsole-insole-lower">
-                                                297</td>
-                                            <td class="px-3 py-4 font-bold text-center text-gray-100"
-                                                id="outsole-insole-predict">319</td>
-                                            <td class="px-3 py-4 text-center text-gray-400" id="outsole-insole-upper">
-                                                341</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="py-4 pl-6 pr-3 font-medium text-gray-100 sm:pl-0">
-                                                Nominal Shoe Size</td>
-                                            <td class="px-3 py-4 text-center text-gray-400" id="outsole-nominal-lower">
-                                                290</td>
-                                            <td class="px-3 py-4 font-bold text-center text-gray-100"
-                                                id="outsole-nominal-predict">314</td>
-                                            <td class="px-3 py-4 text-center text-gray-400" id="outsole-nominal-upper">
-                                                333</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="py-4 pl-6 pr-3 font-medium text-gray-100 sm:pl-0">
-                                                Subject Height</td>
-                                            <td class="px-3 py-4 text-center text-gray-400">-</td>
-                                            <td class="px-3 py-4 font-bold text-center text-gray-100"
-                                                id="outsole-height-predict">333</td>
-                                            <td class="px-3 py-4 text-center text-gray-400">-</td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -204,10 +147,67 @@
             </div>
 
             <!-- FOOTER -->
-            <img src="/static/images/sole-searcher-logo.png" alt="Sole Searcher" class="w-1/2 py-8 mx-auto" />
+            <img src="/static/images/sole-searcher-logo.png" alt="Sole Searcher" class="w-1/3 mx-auto" />
             <!-- END CONTENT -->
         </div>
     </div>
+
+    <script>
+        const insole = document.querySelector('#insole')
+        const insoleUnit = document.querySelector('#insole-unit')
+        const nominal = document.querySelector('#nominal')
+        const nominalCategory = document.querySelector('#footwear-class')
+        const height = document.querySelector('#height')
+        const heightUnit = document.querySelector('#height-unit')
+        const sex = document.querySelector('#sex')
+
+        const floatToFraction = (value, denominator = 32) => {
+            const whole = Math.floor(value)
+            const remain = value - whole
+            const gradation = 1 / denominator
+            const parts = parseInt(remain / gradation)
+
+            return `${whole} <sup>${parts}</sup>/<sub>32</sub>`
+            return `${whole} ${parts}/32`
+        }
+
+        function updatePage() {
+
+            const insoleLengthValue = convert(insole.value, insoleUnit.value, "mm")
+            const shoeSizeValue = parseFloat(nominal.value)
+            const shoeGenderValue = nominalCategory.value
+            const heightValue = convert(height.value, heightUnit.value, 'mm')
+            const sexValue = sex.value
+
+            const result = calculate(
+                insoleLengthValue,
+                shoeSizeValue,
+                shoeGenderValue,
+                heightValue,
+                sexValue,
+            )
+            console.log(result)
+
+            // Simple Results
+            document.querySelector('#shod-lower-mm').textContent = parseInt(result.shod.best.lower)
+            document.querySelector('#shod-upper-mm').textContent = parseInt(result.shod.best.upper)
+            document.querySelector('#unshod-lower-mm').textContent = parseInt(result.unshod.best.lower)
+            document.querySelector('#unshod-upper-mm').textContent = parseInt(result.unshod.best.upper)
+            document.querySelector('#shod-lower-in').innerHTML = floatToFraction(convert(result.shod.best.lower, 'mm', 'in'))
+            document.querySelector('#shod-upper-in').innerHTML = floatToFraction(convert(result.shod.best.upper, 'mm', 'in'))
+            document.querySelector('#unshod-lower-in').innerHTML = floatToFraction(convert(result.unshod.best.lower, 'mm', 'in'))
+            document.querySelector('#unshod-upper-in').innerHTML = floatToFraction(convert(result.unshod.best.upper, 'mm', 'in'))
+        }
+
+        insole.addEventListener('keyup', updatePage)
+        nominal.addEventListener('keyup', updatePage)
+        height.addEventListener('keyup', updatePage)
+        insoleUnit.addEventListener('change', updatePage)
+        nominalCategory.addEventListener('change', updatePage)
+        heightUnit.addEventListener('change', updatePage)
+        sex.addEventListener('change', updatePage)
+
+    </script>
 </body>
 
 </html>
