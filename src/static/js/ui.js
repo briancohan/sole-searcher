@@ -219,6 +219,7 @@ const nominalCategory = document.querySelector('#footwear-class')
 const height = document.querySelector('#height')
 const heightUnit = document.querySelector('#height-unit')
 const sex = document.querySelector('#sex')
+const reset = document.querySelector('#reset')
 
 function updatePage() {
     const insoleLengthValue = convert(insole.value, insoleUnit.value, "mm")
@@ -236,23 +237,38 @@ function updatePage() {
     )
     console.log(result)
 
-    // Simple Results
-    document.querySelector('#db-shod-lower-mm').textContent = parseInt(result.shod[result.shod.best].lower)
-    document.querySelector('#db-shod-upper-mm').textContent = parseInt(result.shod[result.shod.best].upper)
-    document.querySelector('#db-unshod-lower-mm').textContent = parseInt(result.unshod[result.unshod.best].lower)
-    document.querySelector('#db-unshod-upper-mm').textContent = parseInt(result.unshod[result.unshod.best].upper)
+    if (result.shod.best) {
+        document.querySelector('#shod-best').textContent = wordMap[result.shod.best]
+        document.querySelector('#unshod-best').textContent = wordMap[result.unshod.best]
 
-    document.querySelector('#db-shod-lower-in').innerHTML = floatToFraction(convert(result.shod[result.shod.best].lower, 'mm', 'in'))
-    document.querySelector('#db-shod-upper-in').innerHTML = floatToFraction(convert(result.shod[result.shod.best].upper, 'mm', 'in'))
-    document.querySelector('#db-unshod-lower-in').innerHTML = floatToFraction(convert(result.unshod[result.unshod.best].lower, 'mm', 'in'))
-    document.querySelector('#db-unshod-upper-in').innerHTML = floatToFraction(convert(result.unshod[result.unshod.best].upper, 'mm', 'in'))
+        document.querySelector('#db-shod-lower-mm').textContent = parseInt(result.shod[result.shod.best].lower)
+        document.querySelector('#db-shod-upper-mm').textContent = parseInt(result.shod[result.shod.best].upper)
+        document.querySelector('#db-unshod-lower-mm').textContent = parseInt(result.unshod[result.unshod.best].lower)
+        document.querySelector('#db-unshod-upper-mm').textContent = parseInt(result.unshod[result.unshod.best].upper)
 
-    document.querySelector('#shod-best').textContent = wordMap[result.shod.best]
-    document.querySelector('#unshod-best').textContent = wordMap[result.unshod.best]
+        document.querySelector('#db-shod-lower-in').innerHTML = floatToFraction(convert(result.shod[result.shod.best].lower, 'mm', 'in'))
+        document.querySelector('#db-shod-upper-in').innerHTML = floatToFraction(convert(result.shod[result.shod.best].upper, 'mm', 'in'))
+        document.querySelector('#db-unshod-lower-in').innerHTML = floatToFraction(convert(result.unshod[result.unshod.best].lower, 'mm', 'in'))
+        document.querySelector('#db-unshod-upper-in').innerHTML = floatToFraction(convert(result.unshod[result.unshod.best].upper, 'mm', 'in'))
 
-    Plotly.newPlot('shodGraph', graphData(result.shod), graphLayout(result.shod), { staticPlot: true });
-    Plotly.newPlot('unshodGraph', graphData(result.unshod), graphLayout(result.unshod), { staticPlot: true });
+        Plotly.newPlot('shodGraph', graphData(result.shod), graphLayout(result.shod), { staticPlot: true });
 
+        Plotly.newPlot('unshodGraph', graphData(result.unshod), graphLayout(result.unshod), { staticPlot: true });
+    }
+    else {
+        document.querySelector('#shodGraph').innerHTML = ''
+        document.querySelector('#unshodGraph').innerHTML = ''
+
+        document.querySelector('#db-shod-lower-mm').textContent = 0
+        document.querySelector('#db-shod-upper-mm').textContent = 0
+        document.querySelector('#db-unshod-lower-mm').textContent = 0
+        document.querySelector('#db-unshod-upper-mm').textContent = 0
+
+        document.querySelector('#db-shod-lower-in').innerHTML = 0
+        document.querySelector('#db-shod-upper-in').innerHTML = 0
+        document.querySelector('#db-unshod-lower-in').innerHTML = 0
+        document.querySelector('#db-unshod-upper-in').innerHTML = 0
+    }
 }
 updatePage()
 
@@ -263,3 +279,9 @@ insoleUnit.addEventListener('change', updatePage)
 nominalCategory.addEventListener('change', updatePage)
 heightUnit.addEventListener('change', updatePage)
 sex.addEventListener('change', updatePage)
+reset.addEventListener('click', () => {
+    insole.value = ''
+    nominal.value = ''
+    height.value = ''
+    updatePage()
+})
