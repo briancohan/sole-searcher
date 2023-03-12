@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/style.css">
     <title>Sole Searcher</title>
+    <script src="https://cdn.plot.ly/plotly-2.18.2.min.js"></script>
     <script src="static/js/sole.js" defer></script>
     <script src="static/js/ui.js" defer></script>
 </head>
@@ -23,7 +24,14 @@
             <!-- INPUT -->
             <form class="grid grid-cols-2 gap-6 px-4 py-5 sm:px-6">
                 <div class="col-span-2">
-                    <label for="insole" class="block text-sm font-medium text-sole-tan">Insole Length</label>
+                    <label for="insole" class="flex text-sm font-medium text-sole-tan">
+                        <span class="flex pr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </span>
+                        Insole Length
+                    </label>
                     <div class="relative mt-1 rounded-md shadow-sm">
                         <input type="text" name="insole" id="insole"
                             class="block w-full pr-12 bg-transparent border-gray-300 rounded-md focus:border-sole-green focus:ring-sole-green sm:text-sm"
@@ -40,7 +48,14 @@
                 </div>
 
                 <div>
-                    <label for="nominal" class="block text-sm font-medium text-sole-tan">Nominal Shoe Size - US</label>
+                    <label for="nominal" class="flex text-sm font-medium text-sole-tan">
+                        <span class="flex pr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="m22 9.24l-7.19-.62L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21L12 17.27L18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27l1-4.28l-3.32-2.88l4.38-.38L12 6.1l1.71 4.04l4.38.38l-3.32 2.88l1 4.28L12 15.4z"/></svg>
+                        </span>
+                        Nominal Shoe Size - US
+                    </label>
                     <div class="mt-1">
                         <input type="number" name="nominal" id="nominal" min="1" max="18" step="0.5" value="11.5"
                             class="block w-full bg-transparent border-gray-300 rounded-md shadow-sm focus:border-sole-green focus:ring-sole-green sm:text-sm">
@@ -59,7 +74,14 @@
                 </div>
 
                 <div class="">
-                    <label for="height" class="block text-sm font-medium text-sole-tan">Subject Height</label>
+                    <label for="height" class="flex text-sm font-medium text-sole-tan">
+                        <span class="flex pr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="m22 9.24l-7.19-.62L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21L12 17.27L18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27l1-4.28l-3.32-2.88l4.38-.38L12 6.1l1.71 4.04l4.38.38l-3.32 2.88l1 4.28L12 15.4z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="m22 9.24l-7.19-.62L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21L12 17.27L18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27l1-4.28l-3.32-2.88l4.38-.38L12 6.1l1.71 4.04l4.38.38l-3.32 2.88l1 4.28L12 15.4z"/></svg>
+                        </span>
+                        Subject Height
+                    </label>
                     <div class="relative mt-1 rounded-md shadow-sm">
                         <input type="text" name="height" id="height" value="1828"
                             class="block w-full pr-12 bg-transparent border-gray-300 rounded-md focus:border-sole-green focus:ring-sole-green sm:text-sm">
@@ -104,7 +126,7 @@
                                     </g>
                                 </svg>
                             </div>
-                            <p class="ml-16 text-sm font-medium truncate text-sole-tan">Outsole Track Length</p>
+                            <p class="ml-16 text-sm font-medium truncate text-sole-tan">Outsole Track Length - <span id="shod-best"></span></p>
                         </dt>
                         <dd class="flex flex-col items-baseline gap-3 ml-16">
                             <p class="text-2xl font-semibold text-gray-100"><span id="db-shod-lower-mm">?</span> - <span
@@ -112,6 +134,7 @@
                             <p class="text-gray-300 font-lg semibold text-"><span id="db-shod-lower-in">?</span> - <span
                                     id="db-shod-upper-in">?</span> <span class="text-xl">in</span></p>
                         </dd>
+                        <div id="shodGraph" class="pt-12 pb-4"></div>
                     </div>
 
                     <div class="relative px-4 py-5 overflow-hidden rounded-lg shadow shadow-zinc-600 bg-zinc-700 sm:px-6 sm:pt-6">
@@ -126,7 +149,7 @@
                                     </g>
                                 </svg>
                             </div>
-                            <p class="ml-16 text-sm font-medium truncate text-sole-tan">Barefoot Track Length</p>
+                            <p class="ml-16 text-sm font-medium truncate text-sole-tan">Barefoot Track Length - <span id="unshod-best"></span></p>
                         </dt>
                         <dd class="flex flex-col items-baseline gap-3 ml-16">
                             <p class="text-2xl font-semibold text-gray-100"><span id="db-unshod-lower-mm">?</span> -
@@ -136,6 +159,7 @@
                                 <span id="db-unshod-upper-in">?</span> <span class="text-xl">in</span>
                             </p>
                         </dd>
+                        <div id="unshodGraph" class="pt-12 pb-4"></div>
                     </div>
 
                 </dl>

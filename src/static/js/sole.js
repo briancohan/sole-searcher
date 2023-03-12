@@ -6,22 +6,22 @@ function calculate(insoleLength, shoeSize, shoeGender, height, sex) {
         console.log("let's figure stuff from height")
         returnObj.shod.height = calculateShodFromHeight(height, sex);
         returnObj.unshod.height = calculateUnshodFromHeight(height, sex);
-        returnObj.shod.best = returnObj.shod.height;
-        returnObj.unshod.best = returnObj.unshod.height;
+        returnObj.shod.best = 'height';
+        returnObj.unshod.best = 'height';
     }
     if (shoeSize) {
         console.log("let's figure stuff from nominal")
         returnObj.shod.shoeSize = calculateShodFromShoeSize(shoeSize, shoeGender);
         returnObj.unshod.shoeSize = calculateUnshodFromShoeSize(shoeSize, shoeGender);
-        returnObj.shod.best = returnObj.shod.shoeSize;
-        returnObj.unshod.best = returnObj.unshod.shoeSize;
+        returnObj.shod.best = 'shoeSize';
+        returnObj.unshod.best = 'shoeSize';
     }
     if (insoleLength) {
         console.log("let's figure stuff from insole")
         returnObj.shod.insole = calculateShodFromInsole(insoleLength);
         returnObj.unshod.insole = calculateUnshodFromInsole(insoleLength);
-        returnObj.shod.best = returnObj.shod.insole;
-        returnObj.unshod.best = returnObj.unshod.insole;
+        returnObj.shod.best = 'insole';
+        returnObj.unshod.best = 'insole';
     }
     return returnObj;
 }
@@ -44,11 +44,11 @@ function calculateShodFromInsole(insoleLength) {
 }
 
 function calculateAvgShodFromInsole(insoleLength) {
-    return 1.03 * insoleLength + 18;
+    return (1.03 * insoleLength) + 18;
 }
 
 function calculateAvgUnshodFromInsole(insoleLength) {
-    return 0.92 * insoleLength + 12;
+    return (0.92 * insoleLength) + 12;
 }
 
 function calculateLowerShodFromInsole(insoleLength) {
@@ -71,20 +71,29 @@ function calculateUpperUnshodFromInsole(insoleLength) {
 
 /*     SHOE SIZE    */
 function calculateUnshodFromShoeSize(shoeSize, shoeType) {
-    let barefootPrediction = 0.91 * shoeSize + 23;
-    return { lower: 10000, upper: 10000, avg: barefootPrediction };
+    switch(shoeType) {
+        case 'm':
+            return { avg: (6.169578261 * shoeSize) + 212, upper: (6.16961913 * shoeSize) + 236, lower: (6.169538261 * shoeSize) + 189};
+            break;
+        case 'w':
+            return { avg: (6.361212 * shoeSize) + 203, upper: (6.361212 * shoeSize) + 223, lower: (6.361212 * shoeSize) + 178 };
+            break;
+        case 'y':
+            return { avg: (6.242857143 * shoeSize) + 134, upper: (6.242857143 * shoeSize) + 155, lower: (6.242857143 * shoeSize) + 110}
+            break;
+    }
 }
 
 function calculateShodFromShoeSize(shoeSize, shoeType) {
     switch (shoeType) {
         case 'm':
-            return { avg: (8.6 * shoeSize + 215), upper: (8.499565882 * shoeSize + 192), lower: (8.440527059 * shoeSize + 237) };
+            return { avg: (8.6 * shoeSize) + 215, lower: ((8.499565882 * shoeSize) + 192), upper: ((8.440527059 * shoeSize) + 237) };
             break;
         case 'w':
-            return { avg: (9.8 * shoeSize + 192), upper: 10000, lower: 10000 };
+            return { avg: (9.8 * shoeSize) + 192, lower: ((9.687246 * shoeSize) + 170), upper: ((9.918858 * shoeSize) + 215)};
             break;
         case 'y':
-            return { avg: (8.7 * shoeSize + 105), upper: 10000, lower: 10000 };
+            return { avg: (8.7 * shoeSize) + 105, lower: ((8.732732727 * shoeSize) + 93), upper: ((8.737778182 * shoeSize) +117)};
             break;
     }
 }
